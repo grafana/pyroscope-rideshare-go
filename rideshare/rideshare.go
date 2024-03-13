@@ -93,9 +93,34 @@ func ReadConfig() Config {
 	}
 
 	if bi, ok := debug.ReadBuildInfo(); ok {
-		tags["repo"] = bi.Main.Path
-		tags["repo_v"] = bi.Main.Version
-		tags["repo_sum"] = bi.Main.Sum
+		tags["service_repository"] = "https://" + bi.Main.Path
+
+		git := false
+		gitRev := "unknown"
+		gitDirty := false
+		for _, x := range bi.Settings {
+			if x.Key == "vcs" {
+				if x.Value == "git" {
+					git = true
+				}
+			}
+			if x.Key == "vcs.modified" {
+				if x.Value == "true" {
+					gitDirty = true
+				}
+			}
+			if x.Key == "vcs.revision" {
+				if x.Value != "" {
+					gitRev = x.Value
+				}
+			}
+		}
+		if git {
+			if gitDirty {
+				gitRev += "-dirty"
+			}
+			tags["service_git_ref"] = gitRev
+		}
 	}
 
 	c := Config{
