@@ -14,6 +14,25 @@ import (
 
 const durationConstant = time.Duration(200 * time.Millisecond)
 
+func FindNearestVehicle(ctx context.Context, searchRadius int64, vehicle string) {
+	ctx, span := otel.GetTracerProvider().Tracer("").Start(ctx, "FindNearestVehicle")
+	span.SetAttributes(attribute.String("vehicle", vehicle))
+	defer span.End()
+
+	pyroscope.TagWrapper(ctx, pyroscope.Labels("vehicle", vehicle), func(ctx context.Context) {
+		var i int64 = 0
+
+		startTime := time.Now()
+		for time.Since(startTime) < time.Duration(searchRadius)*durationConstant {
+			i++
+		}
+
+		if vehicle == "car" {
+			checkDriverAvailability(searchRadius)
+		}
+	})
+}
+
 var pool *workerPool
 
 // InitWorkPool initializes the worker pool and returns a clean up function.
@@ -53,23 +72,4 @@ func checkDriverAvailability(n int64) {
 	if os.Getenv("REGION") == "eu-north" && force_mutex_lock {
 		mutexLock(n)
 	}
-}
-
-func FindNearestVehicle(ctx context.Context, searchRadius int64, vehicle string) {
-	ctx, span := otel.GetTracerProvider().Tracer("").Start(ctx, "FindNearestVehicle")
-	span.SetAttributes(attribute.String("vehicle", vehicle))
-	defer span.End()
-
-	pyroscope.TagWrapper(ctx, pyroscope.Labels("vehicle", vehicle), func(ctx context.Context) {
-		var i int64 = 0
-
-		startTime := time.Now()
-		for time.Since(startTime) < time.Duration(searchRadius)*durationConstant {
-			i++
-		}
-
-		if vehicle == "car" {
-			checkDriverAvailability(searchRadius)
-		}
-	})
 }
