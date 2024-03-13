@@ -1,7 +1,7 @@
 DOCKER_IMAGE := simonswine/rideshare-go-push
 DOCKER_PLATFORMS := linux/amd64,linux/arm64
 GOBIN := $(CURDIR)/bin
-GIT_TAG := $(shell ./image-tag)
+IMAGE_TAG := $(shell ./image-tag)
 
 define docker_build
   docker buildx build $(2) --platform $(DOCKER_PLATFORMS) -t $(DOCKER_IMAGE):$(1) .
@@ -17,4 +17,4 @@ docker-build:
 	$(call docker_build,"dev")
 
 release:
-	$(call docker_build,$(GIT_TAG), "--push")
+	$(call docker_build,$(IMAGE_TAG), "--push")
