@@ -7,11 +7,11 @@ import (
 	"net/http"
 	"os"
 
-	"rideshare/bike"
-	"rideshare/car"
-	"rideshare/rideshare"
-	"rideshare/scooter"
-	"rideshare/utility"
+	"github.com/grafana/pyroscope-rideshare-go/bike"
+	"github.com/grafana/pyroscope-rideshare-go/car"
+	"github.com/grafana/pyroscope-rideshare-go/rideshare"
+	"github.com/grafana/pyroscope-rideshare-go/scooter"
+	"github.com/grafana/pyroscope-rideshare-go/utility"
 
 	"go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
 

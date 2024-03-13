@@ -1,4 +1,4 @@
-module rideshare
+module github.com/grafana/pyroscope-rideshare-go
 
 go 1.17
 

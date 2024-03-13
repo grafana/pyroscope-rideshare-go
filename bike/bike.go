@@ -2,8 +2,9 @@ package bike
 
 import (
 	"context"
-	"rideshare/rideshare"
-	"rideshare/utility"
+
+	"github.com/grafana/pyroscope-rideshare-go/rideshare"
+	"github.com/grafana/pyroscope-rideshare-go/utility"
 )
 
 func OrderBike(ctx context.Context, searchRadius int64) {

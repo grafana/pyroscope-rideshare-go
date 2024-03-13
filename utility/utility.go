@@ -5,7 +5,7 @@ import (
 	"os"
 	"time"
 
-	"rideshare/rideshare"
+	"github.com/grafana/pyroscope-rideshare-go/rideshare"
 
 	"github.com/grafana/pyroscope-go"
 	"go.opentelemetry.io/otel"

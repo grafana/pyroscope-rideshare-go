@@ -4,7 +4,7 @@ import (
 	"os"
 	"sync"
 
-	"rideshare/rideshare"
+	"github.com/grafana/pyroscope-rideshare-go/rideshare"
 )
 
 type workerPool struct {

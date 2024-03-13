@@ -16,7 +16,7 @@ import (
 	"go.opentelemetry.io/otel/attribute"
 	"go.opentelemetry.io/otel/propagation"
 
-	"rideshare/rideshare"
+	"github.com/grafana/pyroscope-rideshare-go/rideshare"
 )
 
 var urls = []string{}
