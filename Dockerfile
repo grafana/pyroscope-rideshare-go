@@ -1,6 +1,10 @@
-FROM golang:1.21.6
+FROM golang:1.21.8
 
 WORKDIR /go/src/app
+COPY go.mod go.sum .
+RUN go mod download
+
 COPY . .
-RUN go build main.go
-CMD ["./main"]
+
+RUN GOBIN=/usr/local/bin go install ./cmd/rideshare
+CMD ["/usr/local/bin/rideshare"]

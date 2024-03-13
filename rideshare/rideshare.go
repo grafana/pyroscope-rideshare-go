@@ -5,6 +5,7 @@ import (
 	"encoding/base64"
 	"fmt"
 	"os"
+	"runtime/debug"
 	"strconv"
 	"time"
 
@@ -81,10 +82,22 @@ func ReadConfig() Config {
 	if appName == "" {
 		appName = "ride-sharing-app"
 	}
-	hostname, err := os.Hostname()
-	if err != nil {
-		hostname = "unknown"
+
+	tags := map[string]string{
+		"region":   os.Getenv("REGION"),
+		"hostname": "unknown",
 	}
+
+	if hostname, err := os.Hostname(); err != nil {
+		tags["hostname"] = hostname
+	}
+
+	if bi, ok := debug.ReadBuildInfo(); ok {
+		tags["repo"] = bi.Main.Path
+		tags["repo_v"] = bi.Main.Version
+		tags["repo_sum"] = bi.Main.Sum
+	}
+
 	c := Config{
 		AppName:                    appName,
 		PyroscopeServerAddress:     os.Getenv("PYROSCOPE_SERVER_ADDRESS"),
@@ -99,10 +112,8 @@ func ReadConfig() Config {
 
 		UseDebugTracer: os.Getenv("DEBUG_TRACER") == "1",
 		UseDebugLogger: os.Getenv("DEBUG_LOGGER") == "1",
-		Tags: map[string]string{
-			"region":   os.Getenv("REGION"),
-			"hostname": hostname,
-		},
+
+		Tags: tags,
 
 		ParametersPoolSize: envIntOrDefault("PARAMETERS_POOL_SIZE", 1000),
 
