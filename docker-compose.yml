@@ -8,7 +8,7 @@ services:
       - PYROSCOPE_SERVER_ADDRESS=http://pyroscope:4040
       - PARAMETERS_POOL_SIZE=1000
       - PARAMETERS_POOL_BUFFER_SIZE_KB=1000
-    image: docker.io/simonswine/rideshare-go-push:0.1.0
+    image: docker.io/simonswine/rideshare-go-push:0.1.0@sha256:1b89c0a18bda311060853b067a4496cf8da2ac3e7f99a04149f3a2aec80f6236
 
   eu-north:
     ports:
@@ -16,7 +16,7 @@ services:
     environment:
       - REGION=eu-north
       - PYROSCOPE_SERVER_ADDRESS=http://pyroscope:4040
-    image: docker.io/simonswine/rideshare-go-push:0.3.0
+    image: docker.io/simonswine/rideshare-go-push:0.3.0@sha256:ccef83cf80d66c89b8e4c82433fdd412a0f2b5ad34bcd7966b17f009de3760ae
 
   ap-south:
     ports:
@@ -24,14 +24,14 @@ services:
     environment:
       - REGION=ap-south
       - PYROSCOPE_SERVER_ADDRESS=http://pyroscope:4040
-    image: docker.io/simonswine/rideshare-go-push:0.4.0
+    image: docker.io/simonswine/rideshare-go-push:0.4.0@sha256:a226125c1064250336bf17930f70d1150353467b5127e89ab11328b38ccbb751
 
   pyroscope:
-    image: grafana/pyroscope:latest
+    image: grafana/pyroscope:latest@sha256:f6e3caa6cade1dea53dd39db6117668e92cf9e43fbc097dda2096368b14f1cd1
     ports:
       - '4040:4040'
 
   load-generator:
-    image: docker.io/simonswine/rideshare-go-push-loadgen:0.4.0
+    image: docker.io/simonswine/rideshare-go-push-loadgen:0.4.0@sha256:ca61b6fa6d9d159c37f02f8002383c6e36024e221cc6ae28f8655fb1d9ab48c5
     environment:
       - PYROSCOPE_SERVER_ADDRESS=http://pyroscope:4040
