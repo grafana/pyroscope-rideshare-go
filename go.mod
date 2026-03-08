@@ -2,7 +2,7 @@ module github.com/grafana/pyroscope-rideshare-go
 
 go 1.24.0
 
-toolchain go1.24.13
+toolchain go1.26.1
 
 require (
 	github.com/agoda-com/opentelemetry-logs-go v0.4.1
