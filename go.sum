@@ -1,7 +1,7 @@
-github.com/agoda-com/opentelemetry-logs-go v0.4.1 h1:PWGqIxkEEg4HIjnHsHmNa+yGu0lhxHz4XPGKeT4o6T0=
-github.com/agoda-com/opentelemetry-logs-go v0.4.1/go.mod h1:CeDuVaK9yCWN+8UjOW8AciYJE0rl7K/mw4ejBntGYkc=
-github.com/cenkalti/backoff/v4 v4.2.1 h1:y4OZtCnogmCPw98Zjyt5a6+QwPLGkiQsYW5oUqylYbM=
-github.com/cenkalti/backoff/v4 v4.2.1/go.mod h1:Y3VNntkOUPxTVeUxJ/G5vcM//AlwfmyYozVcomhLiZE=
+github.com/agoda-com/opentelemetry-logs-go v0.6.0 h1:PdnNbW2a5vp4VWasIGVHJ85/4Eu0kZfLs3ySuitLN20=
+github.com/agoda-com/opentelemetry-logs-go v0.6.0/go.mod h1:zPrxWeyxZ8QRWJFNBFJ2zeWjJu0OuGG+Ow4KYEGEA5o=
+github.com/cenkalti/backoff/v4 v4.3.0 h1:MyRJ/UdXutAwSAT+s3wNd7MfTIcy71VQueUuFK343L8=
+github.com/cenkalti/backoff/v4 v4.3.0/go.mod h1:Y3VNntkOUPxTVeUxJ/G5vcM//AlwfmyYozVcomhLiZE=
 github.com/cenkalti/backoff/v5 v5.0.3 h1:ZN+IMa753KfX5hd8vVaMixjnqRZ3y8CuJKRKj1xcsSM=
 github.com/cenkalti/backoff/v5 v5.0.3/go.mod h1:rkhZdG3JZukswDf7f0cwqPNk4K0sa+F97BxZthm/crw=
 github.com/cespare/xxhash/v2 v2.3.0 h1:UL815xU9SqsFlibzuggzjXhog7bL6oX9BbNZnL2UFvs=
