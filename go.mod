@@ -4,7 +4,7 @@ go 1.25.0
 
 require (
 	github.com/agoda-com/opentelemetry-logs-go v0.4.1
-	github.com/grafana/otel-profiling-go v0.5.1
+	github.com/grafana/otel-profiling-go v0.6.0
 	github.com/grafana/pyroscope-go v1.1.1
 	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.44.0
 	go.opentelemetry.io/otel v1.43.0
